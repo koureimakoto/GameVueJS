@@ -10,9 +10,8 @@ new Vue ({
   methods: {
     attack(){
       if(this.verifyLife){
-        damage = this.calculateDamage()
-        damageMonster = damage + 2
-        damagePlayer = damage
+        damageMonster = this.calculateDamage() + 2
+        damagePlayer = this.calculateDamage()
         this.lifePlayer -= damageMonster
         this.lifeMonster -= damagePlayer
         this.logs.push({type:'monster', damage : damageMonster})
@@ -23,9 +22,8 @@ new Vue ({
     },
     attackSpecial(){
       if(this.verifyLife){
-        damage = this.calculateDamage()
-        damageMonster = damage
-        damagePlayer = damage + 3
+        damageMonster = this.calculateDamage()
+        damagePlayer = this.calculateDamage() + 2
         this.lifePlayer -= damageMonster
         this.lifeMonster -= damagePlayer
         this.logs.push({type:'monster', damage : damageMonster})
@@ -35,15 +33,16 @@ new Vue ({
       }
     },
     heal(){
-      damages = this.calculateDamage()
-      this.lifePlayer -= damages
-      if((this.lifePlayer + damages) >= 100){
+      heal = this.calculateDamage()
+      damageMonster = this.calculateDamage()
+      this.lifePlayer -= damageMonster
+      if((this.lifePlayer + heal) >= 100){
         this.lifePlayer = 100
       } else {
-        this.lifePlayer += damages + 2
+        this.lifePlayer += heal + 2
       }
-      this.logs.push({type:'monster', damage : damages})
-      this.logs.push({type:'heal', damage : damages+2})
+      this.logs.push({type:'monster', damage : damageMonster})
+      this.logs.push({type:'heal', damage : heal+2})
       
     },
     verifyLife(){
