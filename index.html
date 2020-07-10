@@ -1,0 +1,87 @@
+<script src="https://unpkg.com/vue"></script>
+<link rel="stylesheet" href="style.css">
+
+<div id="app">
+  <div class="box">
+    <div class="box-info">
+      <p>Jogador</p>
+      <div class="bar-life">
+        <div class="player":style="{'width': lifePlayer+'%'}" v-if="lifePlayer >= 80"></div>
+        <div class="life-medium":style="{'width': lifePlayer+'%'}" v-else-if="lifePlayer >= 50"></div>
+        <div class="life-low":style="{'width': lifePlayer+'%'}" v-else></div>
+      </div>
+      <p> {{ lifePlayer }}% </p>
+
+    </div>
+
+    <div class="box-info">
+      <p>Monstro</p>
+      <div class="bar-life">
+        <div class="monster":style="{'width': lifeMonster+'%'}" v-if="lifeMonster >= 80"></div>
+        <div class="life-medium":style="{'width': lifeMonster+'%'}" v-else-if="lifeMonster >= 50"></div>
+        <div class="life-low":style="{'width': lifeMonster+'%'}" v-else></div>
+      </div>
+      <p> {{ lifeMonster }}% </p>
+    </div>
+
+  </div>
+
+  <div class="actio-bar" v-if="!Winner">
+    <div class="btns">
+
+      <template v-if="start">
+        <button class="btn start" @click="start = !start">Iniciar</button>
+      </template>
+      <template v-else>
+        <button class="btn ataque" @click="attack">Ataque</button>
+        <button class="btn ataque-s" @click="attackSpecial">Ataque Especial</button>
+        <button class="btn curar" @click="heal">Curar</button>
+        <button class="btn desistir" @click="begin">Desistir</button>
+      </template>
+
+    </div>
+
+  </div>
+
+  <div class="actio-bar" v-else>
+    <div class="btns">
+
+      <template v-if="start">
+        <button class="btn start" @click="start = !start">Iniciar</button>
+      </template>
+      <template v-else>
+        <button class="btn desistir" @click="begin">Reiniciar</button>
+      </template>
+
+    </div>
+
+  </div>
+
+  <div class="actio-bar" v-if="Winner">
+    <div class="champ" v-if="lifePlayer > lifeMonster"> 
+      JOGADOR VENCEU
+    </div>
+    <div class="champ" v-else> 
+      Monstro VENCEU
+    </div>
+  </div>
+
+  <div class="log" v-if="!start">
+    <div class=result>
+      <template v-for="log in logs">
+        <div class="log-monster" v-if="log.type === 'monster'">
+          MONSTRO ATINGIU JOGADOR COM {{log.damage}}
+        </div>
+        <div class="log-player" v-else-if="log.type === 'player'"> 
+          JOGADOR ATINGIU MONSTRO COM {{log.damage}}
+        </div>
+        <div class="log-player" v-else> 
+          JOGADOR CUROU {{log.damage}}
+        </div>
+      </template>
+    </div>
+  </div>
+
+</div>
+
+<script src="app.js"></script>

@@ -1,0 +1,143 @@
+#app{
+  display: flex;
+  width: 100%;
+  font-family: 'Fira Code', sans-serif;
+  flex-wrap: wrap;
+}
+
+.box{
+  justify-content: space-between;
+  width: 90%;
+  height: 50%;
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  box-shadow: 3px 3px 10px #808090;
+}
+
+.box-info{
+  width: 100%;
+  height: 30%;
+  margin: 5% 5% 0 5%;
+}
+
+.bar-life{
+  width: 100%;
+  height: 20%;
+  background-color: rgba(97, 97, 97, 0.842);
+  border-radius: 10px;
+}
+
+.player{
+  width: 100%;
+  height: 20px;
+  border-radius: 10px;
+  background-color: green;
+}
+
+.monster{
+  width: 100%;
+  height: 20px;
+  border-radius: 10px;
+  background-color: green;
+}
+
+.life-medium{
+  height: 20px;
+  border-radius: 10px;
+  background-color: #dd9700;
+}
+
+.life-low{
+  height: 20px;
+  border-radius: 10px;
+  background-color: red;
+}
+
+.actio-bar{
+  width: 90%;
+  height: 50px;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  margin-top:2%;
+  box-shadow: 3px 3px 10px #808090;
+}
+
+.btns{
+  margin: 0 auto;
+}
+
+.btn{
+  border-radius: 10px;
+  height: 30px;
+  width: 150px;
+  border:none;
+}
+
+
+.start{
+  background-color: #1e1eb8;
+  color: white;
+}
+
+.ataque{
+  background-color: #db1a4a;
+  color: white;
+}
+
+.ataque-s{
+  background-color: #dd9700;
+  color: white;
+}
+
+.curar{
+  background-color: #0cad14;
+  color: white;
+}
+
+.desistir{
+  background-color: rgb(43, 43, 43);;
+  color: white;
+}
+
+.log{
+  width: 90%;
+  display: flex;
+  margin: 0 auto;
+  margin-top:2%;
+  box-shadow: 3px 3px 10px #808090;
+}
+
+.result{
+  flex-wrap: wrap;
+  width: 100%;
+  text-align: center;
+}
+
+.log-player{
+  height: 20px;
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+  margin: 1%;
+}
+
+.log-monster{
+  height: 20px;
+  background-color: red;
+  color: white;
+  margin: 1%;
+  border-radius: 5px;
+}
+
+.champ{
+  background-color: #dd9700 ;
+  margin: 1%;
+  width: 100%;
+  height: 20px;
+  border-radius: 4px;
+  color: white;
+  text-align: center;
+}
